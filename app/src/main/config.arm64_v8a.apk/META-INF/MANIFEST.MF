@@ -1,0 +1,74 @@
+Manifest-Version: 1.0
+
+Name: AndroidManifest.xml
+SHA1-Digest: hF5fuIqZIZNCvGU+gJlUyV8o/eE=
+
+Name: lib/arm64-v8a/libappmodules.so
+SHA1-Digest: QgFXWpoLBTeodmcUlBFhgmVuaDk=
+
+Name: lib/arm64-v8a/libc++_shared.so
+SHA1-Digest: Qb4i8wtcqu9etZou9OIjlNzs/to=
+
+Name: lib/arm64-v8a/libconceal.so
+SHA1-Digest: haKe5zl970RXyITIealcCKwpjNs=
+
+Name: lib/arm64-v8a/libfbjni.so
+SHA1-Digest: 3hDzGuVJ7LFnggM3ryQNM1uuhSk=
+
+Name: lib/arm64-v8a/libgesturehandler.so
+SHA1-Digest: F0S/tYJdcT5NLYDAghcow67nVrg=
+
+Name: lib/arm64-v8a/libhermestooling.so
+SHA1-Digest: 8WLdkNuYwNC5IvJOQ3d81wLGpls=
+
+Name: lib/arm64-v8a/libhermesvm.so
+SHA1-Digest: 4NUgICUPdrHDtdZXoieeVFY+HfU=
+
+Name: lib/arm64-v8a/libimagepipeline.so
+SHA1-Digest: LtlfqFTkjPFfgZe+mTUtJxWlMmw=
+
+Name: lib/arm64-v8a/libjingle_peerconnection_so.so
+SHA1-Digest: KegGQbpcnU96iU052tSCl1OfsL4=
+
+Name: lib/arm64-v8a/libjsi.so
+SHA1-Digest: V/uXVWzHVrW8tNlmBStgNw3V7OA=
+
+Name: lib/arm64-v8a/libnative-filters.so
+SHA1-Digest: Ob2fvlKeyLd/Lb9WyFFazB6717o=
+
+Name: lib/arm64-v8a/libnative-imagetranscoder.so
+SHA1-Digest: rSKsbS6I7fI7WOGrLI/Agc1ZveQ=
+
+Name: lib/arm64-v8a/libreact_codegen_rnscreens.so
+SHA1-Digest: 2btak5k71NY7XdU2JBttYjMCgLw=
+
+Name: lib/arm64-v8a/libreact_codegen_rnsvg.so
+SHA1-Digest: wj6JDqtk46N8VIcUjrF6EVlHnzs=
+
+Name: lib/arm64-v8a/libreact_codegen_safeareacontext.so
+SHA1-Digest: 3iFvB/WgKYg+9Ja6vG9c1rZpjFw=
+
+Name: lib/arm64-v8a/libreactnative.so
+SHA1-Digest: 7+CcDDSpg8hIt7CKFGVFO9W23nI=
+
+Name: lib/arm64-v8a/libreanimated.so
+SHA1-Digest: Tvt1eYK6Yq6/fbETAA0wz9nZU1M=
+
+Name: lib/arm64-v8a/librnscreens.so
+SHA1-Digest: fnCBXOTU2DiBOxG/R1HjMGr3D8w=
+
+Name: lib/arm64-v8a/librnskia.so
+SHA1-Digest: q80HAgGxawzA3vRLQyL1BjqbTU8=
+
+Name: lib/arm64-v8a/libsentry-android.so
+SHA1-Digest: 5qJa5fRauvZJpMPz0FYKplGqGZg=
+
+Name: lib/arm64-v8a/libsentry.so
+SHA1-Digest: 4BJ3LxASHWHvB+eVNaWrGS8VAbQ=
+
+Name: lib/arm64-v8a/libworklets.so
+SHA1-Digest: koj1QmPpm9FpKC1EQqyJKO50Tg0=
+
+Name: stamp-cert-sha256
+SHA1-Digest: 5vTkm69vqAbusD/fho7oWwc7j+I=
+

@@ -1,0 +1,15 @@
+package com.google.android.gms.internal.measurement;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-measurement-impl@@22.0.2 */
+/* JADX INFO: loaded from: classes2.dex */
+public interface zznj {
+    boolean zza();
+
+    boolean zzb();
+
+    boolean zzc();
+
+    boolean zzd();
+
+    boolean zze();
+}

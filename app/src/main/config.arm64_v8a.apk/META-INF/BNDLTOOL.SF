@@ -1,0 +1,77 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: ZaOsC0M1Ua9ho/sUNbuTrDpVdE4=
+X-Android-APK-Signed: 2, 3
+
+Name: AndroidManifest.xml
+SHA1-Digest: v9J+bXrDisUGKXrdP8l+9n8c4OA=
+
+Name: lib/arm64-v8a/libappmodules.so
+SHA1-Digest: QlljMoKJ0CJPR7rExuVjJ/1nN8k=
+
+Name: lib/arm64-v8a/libc++_shared.so
+SHA1-Digest: E6jzg/fxUur6jwrti2hSK2wrxI0=
+
+Name: lib/arm64-v8a/libconceal.so
+SHA1-Digest: yN5N3/quked+xcAVMIssw0JuHLc=
+
+Name: lib/arm64-v8a/libfbjni.so
+SHA1-Digest: i9xoA3YpxN2DOCZk57/KXjoQRnA=
+
+Name: lib/arm64-v8a/libgesturehandler.so
+SHA1-Digest: V5bNlgYbDb+NlOAhphgwUJumMOc=
+
+Name: lib/arm64-v8a/libhermestooling.so
+SHA1-Digest: NtvEFHJOvHeng850uR+gbE1yaa8=
+
+Name: lib/arm64-v8a/libhermesvm.so
+SHA1-Digest: gdFCj1ajDI4RK56Nm85ipbXw88Y=
+
+Name: lib/arm64-v8a/libimagepipeline.so
+SHA1-Digest: oSKgBFxTd/PJl74v1HGclOTbMoA=
+
+Name: lib/arm64-v8a/libjingle_peerconnection_so.so
+SHA1-Digest: qo0/NNCbyU++z4WcBSOWsXRsekc=
+
+Name: lib/arm64-v8a/libjsi.so
+SHA1-Digest: O5O27pzzUtPfwcf0xS19f0QOaXQ=
+
+Name: lib/arm64-v8a/libnative-filters.so
+SHA1-Digest: R/qKcsDmbHcC8paP8Y1VN4xHDSs=
+
+Name: lib/arm64-v8a/libnative-imagetranscoder.so
+SHA1-Digest: srPgUs1EYRaDzp5vzYVV7EPzHyw=
+
+Name: lib/arm64-v8a/libreact_codegen_rnscreens.so
+SHA1-Digest: J8VeydWI63aEzquoBfF+dTKAVx0=
+
+Name: lib/arm64-v8a/libreact_codegen_rnsvg.so
+SHA1-Digest: 16QabXrQE6GGmhbgxMv3MgXXRJo=
+
+Name: lib/arm64-v8a/libreact_codegen_safeareacontext.so
+SHA1-Digest: dcStxhSrReUUt/WHbDVon1QbIDg=
+
+Name: lib/arm64-v8a/libreactnative.so
+SHA1-Digest: HEu89fIkZ9CLmtCJBlB6qRgiPH8=
+
+Name: lib/arm64-v8a/libreanimated.so
+SHA1-Digest: LaHWVwCkByfCTmBz3hA59mqRw1k=
+
+Name: lib/arm64-v8a/librnscreens.so
+SHA1-Digest: 6HtABFLvejbZCNF3vpazkmMfKdk=
+
+Name: lib/arm64-v8a/librnskia.so
+SHA1-Digest: 5AmNM3rnvkb+cDz8Bvw9T2ZbWd4=
+
+Name: lib/arm64-v8a/libsentry-android.so
+SHA1-Digest: F5D4oVqyO4VMGL45OX+hEIhM2gQ=
+
+Name: lib/arm64-v8a/libsentry.so
+SHA1-Digest: 5L4IqP/7oK4w/+5XEOX8hIuVcIw=
+
+Name: lib/arm64-v8a/libworklets.so
+SHA1-Digest: xC8yTm67PQ6MVsJAzYmlNv+esEI=
+
+Name: stamp-cert-sha256
+SHA1-Digest: Bs40BvDZ1xrbgQrPTD2x5w/NfHQ=
+
