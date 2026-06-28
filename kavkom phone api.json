@@ -1,0 +1,1482 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Webphone API",
+        "description": "Documentation API for webphone",
+        "contact": {
+            "email": "pawelkavkom@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api/v1",
+            "description": "API V1"
+        }
+    ],
+    "paths": {
+        "/active_calls/call": {
+            "post": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Run call.",
+                "description": "Run call.",
+                "operationId": "active-calls",
+                "parameters": [
+                    {
+                        "name": "destination",
+                        "in": "query",
+                        "description": "Number of destination",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login to webphone.",
+                "description": "Login to webphone.",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "login_email",
+                        "in": "query",
+                        "description": "Email login user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password login user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/token-login": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login to app.",
+                "description": "Login to app.",
+                "operationId": "token-login",
+                "parameters": [
+                    {
+                        "name": "_iv",
+                        "in": "query",
+                        "description": "_iv token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "domain_name",
+                        "in": "query",
+                        "description": "Domain name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Incorrect password"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout user",
+                "description": "Logout user",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/get-user-info": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get user info about user",
+                "description": "Get user info",
+                "operationId": "get-user-info",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/valid-token": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Check if the token is valid",
+                "description": "Check if the token is valid",
+                "operationId": "valid-token",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/send-reset-link": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login to app.",
+                "description": "Send reset lnik .",
+                "operationId": "send-reset-link",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Email not exist"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },
+        "/auth/change-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Change password.",
+                "description": "Change password.",
+                "operationId": "change-password",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Token reset password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "host",
+                        "in": "query",
+                        "description": "Host reset password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "New password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password_confirm",
+                        "in": "query",
+                        "description": "New password confirmation",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Invalid Token"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },
+        "/recent-calls": {
+            "get": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "List recent calls.",
+                "description": "List recent calls.",
+                "operationId": "recent-calls-list",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Offset records",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "in": "query",
+                        "description": "Take record for the page",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "filter[number]",
+                        "in": "query",
+                        "description": "Search by number",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "filter[did_number]",
+                        "in": "query",
+                        "description": "Search by DID number",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "filter[direction]",
+                        "in": "query",
+                        "description": "Search by direction of the call, whether inbound or outbound",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "period",
+                        "in": "query",
+                        "description": "Number of period",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/recent-calls/get-recording/{uuid}": {
+            "get": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": " Method is used to download the file with recording.",
+                "description": " Method is used to download the file with recording.",
+                "operationId": "get-recording-url",
+                "responses": {
+                    "200": {
+                        "description": "Success. Return filelink to file."
+                    },
+                    "404": {
+                        "description": "Resource not found."
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/check-numbers": {
+            "post": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": " Method is used to check number is corrected.",
+                "description": " Method is used to check number is corrected.",
+                "operationId": "check-numbers",
+                "responses": {
+                    "200": {
+                        "description": "Success. Return status numbers with information is number is correct."
+                    },
+                    "422": {
+                        "description": "Input data is required."
+                    },
+                    "500": {
+                        "description": "Something went wrong"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/get-last-call": {
+            "get": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": " Method is used to get last call log user.",
+                "description": " Method is used to get last call log user.",
+                "operationId": "get-last-call",
+                "responses": {
+                    "200": {
+                        "description": "Success. Return last number for log user."
+                    },
+                    "500": {
+                        "description": "Something went wrong"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/contacts": {
+            "get": {
+                "tags": [
+                    "Contacts"
+                ],
+                "summary": "List contacts.",
+                "description": "List contacts.",
+                "operationId": "contacts-list",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Number page pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit record for the page",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/dids": {
+            "get": {
+                "tags": [
+                    "Dids"
+                ],
+                "summary": "List dids.",
+                "description": "List dids.",
+                "operationId": "dids-list",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Number page pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit record for the page",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/update-did": {
+            "post": {
+                "tags": [
+                    "Dids"
+                ],
+                "summary": "Update update display number.",
+                "description": "Update update display number.",
+                "operationId": "dids-update",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "Number extension",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/integrations/search-number": {
+            "post": {
+                "tags": [
+                    "Integrations"
+                ],
+                "summary": "Search number in Hubspot.",
+                "description": "Search number in Hubspot.",
+                "operationId": "search-number",
+                "parameters": [
+                    {
+                        "name": "driver",
+                        "in": "query",
+                        "description": "Name of driver. Example hubspot, salesforce, pipedrive, powerlink, kavkomcrm",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Lead not found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/integrations/create-contact": {
+            "post": {
+                "tags": [
+                    "Integrations"
+                ],
+                "summary": "Create contact in Hubspot.",
+                "description": "Create contact in Hubspot.",
+                "operationId": "create-contact",
+                "parameters": [
+                    {
+                        "name": "firstname",
+                        "in": "query",
+                        "description": "Firstname of contact",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lastname",
+                        "in": "query",
+                        "description": "Lastname of contact",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "Phone of contact",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "company",
+                        "in": "query",
+                        "description": "Name of company",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email of contact",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "website",
+                        "in": "query",
+                        "description": "Website of contact",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/integrations/extensions/settings": {
+            "get": {
+                "tags": [
+                    "Integrations"
+                ],
+                "summary": "Get calling settings in Hubspot.",
+                "description": "Returns the calling extension settings configured for your app.",
+                "operationId": "get-extension-settings",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/my-profile": {
+            "get": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Get data profile user.",
+                "description": "Get data profile user.",
+                "operationId": "my-profile",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Update data profile.",
+                "description": "Update data profile.",
+                "operationId": "update-profile",
+                "parameters": [
+                    {
+                        "name": "contact_nickname",
+                        "in": "query",
+                        "description": "Contact nick name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "signature",
+                        "in": "query",
+                        "description": "signature",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "description": "language",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/my-profile/change-password": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Change password in my profile.",
+                "description": "Change password in my profile.",
+                "operationId": "profile-change-password",
+                "parameters": [
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "New password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "description": "New password confirmation",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "old_password",
+                        "in": "query",
+                        "description": "Old password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/sms": {
+            "get": {
+                "tags": [
+                    "Sms"
+                ],
+                "summary": "List sms.",
+                "description": "List sms.",
+                "operationId": "sms-list",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Number page pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit record for the page",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "phone_number",
+                        "in": "query",
+                        "description": "Filter by phone_number",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "groupByNumbers",
+                        "in": "query",
+                        "description": "Filter by phone_number",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "user_uuid",
+                        "in": "query",
+                        "description": "Filter by user_uuid",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Sms"
+                ],
+                "summary": "Send a new SMS message",
+                "description": "Send a new SMS message to a specified outside number.",
+                "operationId": "sms-send",
+                "requestBody": {
+                    "description": "SMS message payload",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "outside_number",
+                                    "message"
+                                ],
+                                "properties": {
+                                    "outside_number": {
+                                        "description": "Phone number to send the SMS to",
+                                        "type": "string",
+                                        "example": "+48123123123"
+                                    },
+                                    "message": {
+                                        "description": "Text content of the SMS message",
+                                        "type": "string",
+                                        "example": "Hello from API!"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "SMS sent successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation Failed"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "outside_number": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The outside number field is required."
+                                                    }
+                                                },
+                                                "message": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The message field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/sms/{id}": {
+            "get": {
+                "tags": [
+                    "Sms"
+                ],
+                "summary": "Get SMS by ID",
+                "description": "Retrieve details of a specific SMS message by its ID.",
+                "operationId": "sms-show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the SMS message",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 123
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SMS found successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Action completed successfully"
+                                        },
+                                        "data": {
+                                            "description": "SMS data",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 123
+                                                },
+                                                "outside_number": {
+                                                    "type": "string",
+                                                    "example": "+48123123123"
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Hello from API!"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "delivered"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-08-19T12:34:56Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "SMS not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sms not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Something went wrong."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/sms/{msg_id}/read": {
+            "post": {
+                "tags": [
+                    "Sms"
+                ],
+                "summary": "Mark a single SMS as read",
+                "description": "Marks a single SMS message as read based on its unique msg_id.",
+                "operationId": "sms-mark-as-read",
+                "parameters": [
+                    {
+                        "name": "msg_id",
+                        "in": "path",
+                        "description": "Unique ID of the SMS message",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 456
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SMS marked as read successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "SMS marked as read"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to mark SMS as read",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed to mark SMS as read"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Something went wrong",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Something went wrong."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/sms/{msg_id}/conversation/read": {
+            "post": {
+                "tags": [
+                    "Sms"
+                ],
+                "summary": "Mark entire conversation as read",
+                "description": "Marks all messages in the conversation (identified by an SMS ID) as read.",
+                "operationId": "sms-mark-conversation-as-read",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of an SMS message that belongs to the conversation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 123
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Conversation marked as read successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Conversation marked as read"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to mark conversation as read",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed to mark conversation as read"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Something went wrong",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Something went wrong."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/sms/conversation/has-unread": {
+            "get": {
+                "tags": [
+                    "Sms"
+                ],
+                "summary": "Check if user has unread SMS messages",
+                "description": "Returns information whether the authenticated user has any unread SMS messages.",
+                "operationId": "sms-has-unread",
+                "responses": {
+                    "200": {
+                        "description": "Request successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "has_unread": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Something went wrong",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Something went wrong."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/sms/conversation/count-unread": {
+            "get": {
+                "tags": [
+                    "Sms"
+                ],
+                "summary": "Count unread SMS messages for user",
+                "description": "Returns the number of unread SMS messages for the authenticated user.",
+                "operationId": "sms-count-unread",
+                "responses": {
+                    "200": {
+                        "description": "Request successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "count": {
+                                            "type": "integer",
+                                            "example": 5
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Something went wrong",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Something went wrong."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "401": {
+                "description": "Incorrect password"
+            },
+            "500": {
+                "description": "Error"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Calls",
+            "description": "Calls"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "User",
+            "description": "User"
+        },
+        {
+            "name": "Contacts",
+            "description": "Contacts"
+        },
+        {
+            "name": "Dids",
+            "description": "Dids"
+        },
+        {
+            "name": "Integrations",
+            "description": "Integrations"
+        },
+        {
+            "name": "Profile",
+            "description": "Profile"
+        },
+        {
+            "name": "Sms",
+            "description": "Sms"
+        }
+    ]
+}
